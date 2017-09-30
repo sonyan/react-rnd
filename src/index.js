@@ -136,6 +136,7 @@ type Props = {
   dragHandleClassName?: string;
   disableDragging?: boolean;
   _freeBottomBounds?: boolean; // Back door for react-elastic-grid.
+  scale?: number;
 }
 
 const resizableStyle = {
@@ -388,6 +389,10 @@ export default class Rnd extends React.Component<Props, State> {
       ...cursorStyle,
       ...this.props.style,
     };
+    const scale = this.props.scale || 1;
+    const position = {
+      x: this.props.position
+    };
     // HACK: Wait for setting relative to parent element.
     if (!this.state.isMounted) return <div />;
     const maxHeight = this.props._freeBottomBounds ? 2147483647 : this.state.maxHeight; // eslint-disable-line
@@ -404,6 +409,7 @@ export default class Rnd extends React.Component<Props, State> {
         grid={this.props.dragGrid}
         bounds={this.props.bounds ? this.state.bounds : undefined}
         position={this.props.position}
+        scale={scale}
       >
         <Resizable
           {...this.props.extendsProps}
