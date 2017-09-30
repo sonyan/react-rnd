@@ -419,6 +419,7 @@ export default class Rnd extends React.Component<Props, State> {
           }}
           defaultSize={this.props.default}
           size={this.props.size}
+          scale={scale}
           enable={this.props.enableResizing}
           onResizeStart={this.onResizeStart}
           onResize={this.onResize}

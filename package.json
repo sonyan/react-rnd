@@ -90,7 +90,7 @@
     "fixture": "./fixture.html"
   },
   "dependencies": {
-    "re-resizable": "^4.0.0",
+    "re-resizable": "https://github.com/sonyan/re-resizable.git",
     "react-draggable": "https://github.com/sonyan/react-draggable.git"
   }
 }
